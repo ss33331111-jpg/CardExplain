@@ -1,9 +1,80 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PHPプログラムの世界へ</title>
+
+  <style>
+    /* 目次の見た目 */
+    #toc {
+      margin-top: 12px;
+      padding: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #f5f5f5;
+    }
+
+    /* ボタンの見た目 */
+    #toc-button {
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+  </style>
 </head>
+
 <body>
-<p>PHPプログラムの世界へ</p>
+  <h1>PHPプログラムの世界へ</h1>
+
+  <button
+    id="toc-button"
+    type="button"
+    aria-expanded="false"
+    aria-controls="toc"
+  >
+    目次を開く
+  </button>
+
+  <nav id="toc" aria-label="目次" hidden>
+    <ul>
+      <li><a href="#about">PHPとは</a></li>
+      <li><a href="#prepare">準備するもの</a></li>
+      <li><a href="#first-program">最初のプログラム</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>PHPとは</h2>
+      <p>PHPについての説明をここに書きます。</p>
+    </section>
+
+    <section id="prepare">
+      <h2>準備するもの</h2>
+      <p>必要な環境や道具について書きます。</p>
+    </section>
+
+    <section id="first-program">
+      <h2>最初のプログラム</h2>
+      <p>プログラムの書き方をここに書きます。</p>
+    </section>
+  </main>
+
+  <script>
+    // 操作するボタンと目次を取得する
+    const button = document.getElementById("toc-button");
+    const toc = document.getElementById("toc");
+
+    // ボタンが押されたときに実行する
+    button.addEventListener("click", () => {
+      // hidden が true なら非表示、false なら表示
+      toc.hidden = !toc.hidden;
+
+      // 表示状態に合わせてボタンを更新する
+      const isOpen = !toc.hidden;
+      button.textContent = isOpen ? "目次を閉じる" : "目次を開く";
+      button.setAttribute("aria-expanded", String(isOpen));
+    });
+  </script>
 </body>
 </html>
