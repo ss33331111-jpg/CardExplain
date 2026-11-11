@@ -1,0 +1,10 @@
+/* 共通の見た目。変更するときは二人で相談する。 */
+:root {
+  --color-text: #222;
+  --space: 16px;
+}
+
+body {
+  font-family: sans-serif;
+  color: var(--color-text);
+}
