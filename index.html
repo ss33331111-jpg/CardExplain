@@ -1,18 +1,18 @@
 ﻿<!DOCTYPE html>
 <html lang="ja">
+<!-- ===== 共通部分(Web設定) ===== -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>おつまみポーカー ルール（仮）</title>
+  <title>おつまみポーカー</title>
 
-  <!-- ===== 共通部分（二人とも、この<head>は触らない） ===== -->
   <link rel="stylesheet" href="base.css">
   <link rel="stylesheet" href="toc.css">
   <link rel="stylesheet" href="content.css">
 </head>
 <body>
 
-  <!-- ===== ヘッダー（ページ全体の名前。h1は1ページに1つだけ） ===== -->
+  <!-- ===== ヘッダー ===== -->
   <header>
     <h1>おつまみポーカー</h1>
   </header>
@@ -87,6 +87,227 @@
       <h2>大見出し3（ダミー）</h2>
       <p>ダミーの文章。</p>
     </section>
+
+
+
+  <!-- ===== 本文エリア（本文の担当だけが触る） ===== -->
+  <!-- 本文は「基本ルール.docx」（仮案）と「O=RUINN.xlsx」から作った仮の内容。
+       用語（青い文字）を押すと説明が出る。説明文は「用語集」と同じ文章を、下の「用語の説明（ポップアップ）」にも書いてある。
+       用語集の文章を直したら、ポップアップ側も同じに直すこと。 -->
+  <main>
+
+    <!-- 最初の説明文（ゲーム全体の紹介） -->
+    <p id="intro" class="content-intro">
+      おつまみポーカーのルールをまとめたページです。(ここはおつまみポーカーがどういうゲームかの説明を入れる予定)青い文字（用語）を押すと、説明が出ます。
+    </p>
+
+
+    <!-- ===== ゲーム概要（#overview） ===== -->
+    <section id="overview" class="content-section">
+      <h2>ゲーム概要</h2>
+      <ul>
+        <li>プレイ人数は、3〜6人を想定しています。</li>
+        <li><button popovertarget="term-bb">BB</button>・<button popovertarget="term-sb">SB</button>・ディーラー<button popovertarget="term-button">ボタン</button>があります。</li>
+        <li>カードの種類は、原材料・調味料・酒の3つです。</li>
+        <li>持ち点が0になったプレイヤーは、脱落します。</li>
+        <li>最後の一人になるまで、勝負を続けます。</li>
+      </ul>
+    </section>
+
+
+    <!-- ===== 準備と点数（#setup） ===== -->
+    <section id="setup" class="content-section">
+      <h2>準備と点数</h2>
+      <p>最初の持ち点は、1500点です。</p>
+
+      <section id="setup-deal">
+        <h3>カードの配り方</h3>
+        <ul>
+          <li>原材料を、手札に2枚、場に裏向きで5枚、場に表向きでプレイヤーの人数分、置きます。</li>
+          <li>調味料を、場に裏向きで（未定）枚、表向きで1枚、置きます。</li>
+          <li>酒を、手札に1枚、配ります。</li>
+        </ul>
+      </section>
+    </section>
+
+
+    <!-- ===== ゲームの流れ（#flow） ===== -->
+    <section id="flow" class="content-section">
+      <h2>ゲームの流れ</h2>
+      <ol>
+        <li>手札を配ってから<button popovertarget="term-pod">ポッド</button>を分けるまでを、1<button popovertarget="term-round">ラウンド</button>とします。</li>
+        <li><button popovertarget="term-betting-round">ベッティングラウンド</button>は3回あります。手札を配ったとき、場のカードを3枚表にしたとき、場のカードがすべて表になったときです。</li>
+        <li>原材料と調味料を合わせて、おつまみ（役）を作ります。</li>
+        <li>手札と場のカードで、役を複数作れます。その合計ランクで勝負します。</li>
+        <li>役と酒の組み合わせで、役のランクが上がります。<!-- 要確認：どの酒で、どう上がるかが決まっていません。 --></li>
+      </ol>
+
+      <section id="flow-auction">
+        <h3>競り</h3>
+        <ul>
+          <li><button popovertarget="term-auction">競り</button>で払う額は、10点単位で、プレイヤーが好きに決めます。</li>
+          <li>競りは、<button popovertarget="term-button">ボタン</button>から始めて、<button popovertarget="term-bb">BB</button>→<button popovertarget="term-sb">SB</button>の順に行います。<!-- 要確認：「ボタン→SB→BB」の間違いではないか。 --></li>
+          <li>同じカードを複数のプレイヤーが狙ったときは、払った持ち点が大きい人が、そのカードを手に入れます。</li>
+          <li>欲しいカードを手に入れられなかった人は、払った持ち点が手元に戻ります。</li>
+          <li>手に入れた人が払った持ち点は、次回の<button popovertarget="term-pod">ポッド</button>に追加されます。</li>
+          <li>競りで残ったカードは、山札に送られます。</li>
+          <!-- 要確認：競りを、ゲームのどの時点で行うかが書かれていません。 -->
+        </ul>
+      </section>
+
+      <section id="flow-result">
+        <h3>勝敗</h3>
+        <ul>
+          <li>同じランクの役では、酒が無いほうが強くなります。</li>
+          <li>同じランクの役は、引き分けです。掛け金を半分ずつに分けます。</li>
+          <li>分けきれない余りの掛け金は、<button popovertarget="term-bb">BB</button>に近い人から順に渡します。（BB→SB→…の順で、BBに近い人）</li>
+        </ul>
+      </section>
+    </section>
+
+
+    <!-- ===== 掛け金（#betting） ===== -->
+    <section id="betting" class="content-section">
+      <h2>掛け金</h2>
+      <ul>
+        <li>最初の<button popovertarget="term-bb">BB</button>は20点、<button popovertarget="term-sb">SB</button>は10点です。</li>
+        <li>2<button popovertarget="term-round">ラウンド</button>ごとに、SBが1.5倍になります。10点単位で切り上げます。</li>
+        <li><button popovertarget="term-raise">レイズ</button>の上限額は、ありません。下限額は、BBと同じ額です。</li>
+      </ul>
+    </section>
+
+
+    <!-- ===== 役一覧（#hands）（仮） =====
+         xlsxの「集計」「Sheet3」から作成。ランクの名前は、具材の種類数から推定した仮のもの。 -->
+    <section id="hands" class="content-section">
+      <h2>役一覧</h2>
+      <p>おつまみ（役）は、必要な具材の種類の数で、ランクが決まります。</p>
+      <!-- 要確認：ランクの名前と、ランクの強さの順番（単品＜ワンペア＜…）は、表から推定した仮のものです。 -->
+
+      <section id="hands-1">
+        <h3>単品（具材1種類）</h3>
+        <ul class="content-yaku">
+          <li><span class="content-yaku-name">じゃがバター</span>根菜</li>
+          <li><span class="content-yaku-name">スモークベーコン</span>肉</li>
+          <li><span class="content-yaku-name">サラミ</span>肉</li>
+          <li><span class="content-yaku-name">ビーフジャーキー</span>肉</li>
+          <li><span class="content-yaku-name">ミートボール</span>肉</li>
+          <li><span class="content-yaku-name">ローストポーク</span>肉</li>
+          <li><span class="content-yaku-name">ラムチョップ</span>肉</li>
+          <li><span class="content-yaku-name">鶏の軟骨揚げ</span>肉</li>
+          <li><span class="content-yaku-name">もつ煮込み</span>肉</li>
+          <li><span class="content-yaku-name">燻製たまご</span>卵</li>
+          <li><span class="content-yaku-name">さつま揚げ</span>葉菜</li>
+          <li><span class="content-yaku-name">きんぴら</span>葉菜</li>
+          <!-- 要確認：名前が入っていません。
+          <li><span class="content-yaku-name">（名前未定）</span>ナッツ</li>
+          -->
+        </ul>
+      </section>
+
+      <section id="hands-2">
+        <h3>ワンペア（具材2種類）</h3>
+        <ul class="content-yaku">
+          <li><span class="content-yaku-name">しおまめ</span>枝豆＋塩</li>
+          <li><span class="content-yaku-name">焼き鳥</span>肉＋葉菜</li>
+          <li><span class="content-yaku-name">しおから</span>イカ＋塩</li>
+          <li><span class="content-yaku-name">ローストビーフ</span>肉＋調味料</li>
+          <li><span class="content-yaku-name">塩キャベツ</span>葉菜＋塩</li>
+          <li><span class="content-yaku-name">海苔チーズ</span>韓国のり＋チーズ</li>
+          <li><span class="content-yaku-name">イカの唐揚げ</span>イカ＋油</li>
+          <!-- 要確認：名前が入っていません。
+          <li><span class="content-yaku-name">（名前未定）</span>イカ＋ハム</li>
+          -->
+        </ul>
+      </section>
+
+      <section id="hands-3">
+        <h3>スリーカード（具材3種類）</h3>
+        <ul class="content-yaku">
+          <li><span class="content-yaku-name">フライドポテト</span>油＋塩＋根菜</li>
+          <li><span class="content-yaku-name">ザンギ</span>肉＋油＋粉</li>
+          <li><span class="content-yaku-name">カプレーゼ</span>葉菜＋油＋チーズ</li>
+          <li><span class="content-yaku-name">だし巻き</span>油＋調味料＋卵</li>
+        </ul>
+      </section>
+
+      <section id="hands-4">
+        <h3>フォーカード（具材4種類）</h3>
+        <ul class="content-yaku">
+          <li><span class="content-yaku-name">餃子</span>肉＋葉菜＋調味料＋皮</li>
+        </ul>
+      </section>
+
+      <section id="hands-5">
+        <h3>ファイブカード（具材5種類）</h3>
+        <ul class="content-yaku">
+          <li><span class="content-yaku-name">ハムカツ</span>ハム＋油＋チーズ＋調味料＋卵</li>
+          <li><span class="content-yaku-name">たこ焼き</span>葉菜＋油＋粉＋調味料＋タコ</li>
+          <!-- 要確認：名前が入っていません。
+          <li><span class="content-yaku-name">（名前未定）</span>枝豆＋カルパス＋韓国のり＋チーズ＋梅干し</li>
+          -->
+        </ul>
+      </section>
+
+      <!-- 要確認：次の役は、表に具材が入っていません。
+      <section id="hands-6">
+        <h3>具材が未設定の役</h3>
+        <p>ダークチョコレート、キノコのソテー、スモークサーモン、エビのガーリック炒め、白身魚のカルパッチョ、タコのマリネ、オリーブ、バーニャカウダ、しめ鯖、たこわさ、砂肝の塩焼き、冷奴、キムチ、梅水晶、きゅうりの浅漬け、いかの一夜干し、ドライフルーツ、オイルサーディン、レーズンバター、焼き明太子、刺身</p>
+      </section>
+      -->
+    </section>
+
+
+    <!-- ===== 用語集（#glossary） ===== -->
+    <!-- 注意：ここの説明文は、下の「用語の説明（ポップアップ）」にも同じ文章がある。直すときは両方を直す。 -->
+    <section id="glossary" class="content-section">
+      <h2>用語集</h2>
+      <dl class="content-glossary">
+        <dt>ボタン</dt>
+        <dd>ラウンドの最後に動くプレイヤー。ポストフロップ（場のカードを表にしたあと）では、最後に順番が回ってくる。プリフロップ（手札を配った段階）では、最後から3番目。</dd>
+        <dt>SB</dt>
+        <dd>強制ベットを支払う人。ボタンの左隣のプレイヤー。</dd>
+        <dt>BB</dt>
+        <dd>SBより大きい強制ベットを支払う人。SBの左隣のプレイヤー。</dd>
+        <dt>ベッティングラウンド</dt>
+        <dd>プレイヤーがチップを賭ける「回」のこと。</dd>
+        <dt>ラウンド</dt>
+        <dd>手札を配ってから、ポッドを分けるまでの動き。</dd>
+        <dt>ベット</dt>
+        <dd>各ベッティングラウンドで、最初に賭けること。</dd>
+        <dt>コール</dt>
+        <dd>ベットされた額と同じ額を払って、勝負に乗ること。</dd>
+        <dt>レイズ</dt>
+        <dd>ベットされた額に上乗せして、勝負に乗ること。</dd>
+        <dt>チェック</dt>
+        <dd>だれもベットしていないときに、何もせず次の人へ回すこと。</dd>
+        <dt>フォールド</dt>
+        <dd>手札を捨てて、今のラウンドの勝負から降りること。</dd>
+        <dt>オールイン</dt>
+        <dd>持ち点をすべて賭けること。</dd>
+        <dt>ポッド</dt>
+        <dd>賭け金が置かれる場所。</dd>
+        <dt>競り</dt>
+        <dd>手札を配ったあと、場に表になっているカードの中から欲しいものに持ち点を払って、手札に加えること。</dd>
+      </dl>
+    </section>
+
+
+    <!-- ===== 用語の説明（ポップアップ）：用語集と同じ文章 =====
+         青い用語を押すと表示される。ボタンの popovertarget と、ここの id を合わせる。 -->
+    <div id="term-button" class="content-popover" popover><strong>ボタン</strong><br>ラウンドの最後に動くプレイヤー。ポストフロップ（場のカードを表にしたあと）では、最後に順番が回ってくる。プリフロップ（手札を配った段階）では、最後から3番目。</div>
+    <div id="term-sb" class="content-popover" popover><strong>SB</strong><br>強制ベットを支払う人。ボタンの左隣のプレイヤー。</div>
+    <div id="term-bb" class="content-popover" popover><strong>BB</strong><br>SBより大きい強制ベットを支払う人。SBの左隣のプレイヤー。</div>
+    <div id="term-betting-round" class="content-popover" popover><strong>ベッティングラウンド</strong><br>プレイヤーがチップを賭ける「回」のこと。</div>
+    <div id="term-round" class="content-popover" popover><strong>ラウンド</strong><br>手札を配ってから、ポッドを分けるまでの動き。</div>
+    <div id="term-bet" class="content-popover" popover><strong>ベット</strong><br>各ベッティングラウンドで、最初に賭けること。</div>
+    <div id="term-call" class="content-popover" popover><strong>コール</strong><br>ベットされた額と同じ額を払って、勝負に乗ること。</div>
+    <div id="term-raise" class="content-popover" popover><strong>レイズ</strong><br>ベットされた額に上乗せして、勝負に乗ること。</div>
+    <div id="term-check" class="content-popover" popover><strong>チェック</strong><br>だれもベットしていないときに、何もせず次の人へ回すこと。</div>
+    <div id="term-fold" class="content-popover" popover><strong>フォールド</strong><br>手札を捨てて、今のラウンドの勝負から降りること。</div>
+    <div id="term-allin" class="content-popover" popover><strong>オールイン</strong><br>持ち点をすべて賭けること。</div>
+    <div id="term-pod" class="content-popover" popover><strong>ポッド</strong><br>賭け金が置かれる場所。</div>
+    <div id="term-auction" class="content-popover" popover><strong>競り</strong><br>手札を配ったあと、場に表になっているカードの中から欲しいものに持ち点を払って、手札に加えること。</div>
 
   </main>
 
