@@ -1,2 +1,110 @@
 /* content.css：本文の見た目（本文の担当だけが触る）
    クラス名は content- で始める。 */
+
+/* スマホ基準：本文の左右に余白を付ける */
+main {
+  /* 本文で使う色（仮） */
+  --content-term: #0b57d0;
+  --content-border: #ccc;
+
+  padding: var(--space);
+  line-height: 1.7;
+  /* PCでは、本文の幅に上限を付けて、画面の真ん中に置く（スマホは変わらない） */
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.content-intro {
+  margin: 0 0 calc(var(--space) * 2);
+}
+
+.content-section {
+  margin-bottom: calc(var(--space) * 2);
+}
+
+/* 目次のリンクで飛んだとき、見出しが画面の上端に貼り付かないようにする */
+.content-section,
+.content-section section {
+  scroll-margin-top: calc(var(--space) * 4);
+}
+
+.content-section h2 {
+  margin: 0 0 var(--space);
+  font-size: 1.4rem;
+}
+
+.content-section h3 {
+  margin: calc(var(--space) * 1.5) 0 var(--space);
+  font-size: 1.15rem;
+}
+
+/* 画像・GIFが画面の幅からはみ出さないようにする */
+.content-section img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ヘッダー（ページ全体の名前）は、横幅の真ん中に置く */
+header {
+  padding: var(--space);
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+/* 用語（青い文字）：popovertarget を持つボタンを、文章の中のリンクのように見せる */
+button[popovertarget] {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: none;
+  font: inherit;
+  color: var(--content-term);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* 用語を押すと出る説明（ポップアップ）：画面の下に固定する */
+.content-popover {
+  /* 上は自動、左右は0、下は余白ぶん空ける。左右の margin: auto で、横の真ん中に置く */
+  inset: auto 0 var(--space) 0;
+  margin: 0 auto;
+  width: min(90vw, 24rem);
+  padding: var(--space);
+  /* 用語の青と同じ色の太い枠と、うすい青の背景で、説明が出たと分かりやすくする */
+  border: 3px solid var(--content-term);
+  border-radius: 8px;
+  color: var(--color-text);
+  background: #eef4ff;
+  line-height: 1.6;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* 役一覧：役の名前と具材を1行ずつ並べる */
+.content-yaku {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.content-yaku li {
+  padding: calc(var(--space) / 2) 0;
+  border-bottom: 1px solid var(--content-border);
+}
+
+.content-yaku-name {
+  display: block;
+  font-weight: bold;
+}
+
+/* 用語集 */
+.content-glossary dt {
+  margin-top: var(--space);
+  font-weight: bold;
+}
+
+.content-glossary dd {
+  margin: 0;
+}
