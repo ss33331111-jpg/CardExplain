@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <!-- ===== 共通部分(Web設定) ===== -->
 <head>
@@ -20,6 +20,74 @@
 
   <!-- ===== 目次エリア（目次の担当だけが触る） ===== -->
   <!-- ここに、左上のボタンと目次（nav）を書く。今は空 -->
+  <button
+  id="toc-button"
+  class="toc-button"
+  type="button"
+  aria-expanded="false"
+  aria-controls="toc"
+>
+  目次を開く
+</button>
+
+<nav id="toc" class="toc-nav" aria-label="目次">
+  <ul>
+    <li><a href="#intro">ゲームの紹介</a></li>
+    <li><a href="#section-1">大見出し1</a></li>
+    <li>
+      <a href="#section-2">大見出し2</a>
+      <ul>
+        <li><a href="#section-2-1">小見出し2-1</a></li>
+        <li><a href="#section-2-2">小見出し2-2</a></li>
+      </ul>
+    </li>
+    <li><a href="#section-3">大見出し3</a></li>
+  </ul>
+</nav>
+
+  <!-- ===== 本文エリア（本文の担当だけが触る） ===== -->
+  <main>
+
+    <!-- 最初の説明文（ゲーム全体の紹介） -->
+    <p id="intro" class="content-intro">ダミーの説明文。ゲーム全体の紹介がここに入ります。</p>
+
+
+    <!-- ===== セクション1：小セクションなしの大セクションの例 ===== -->
+    <section id="section-1" class="content-section">
+      <h2>大見出し1（ダミー）</h2>
+      <ul>
+        <li>ダミーの文章1</li>
+        <li>ダミーの文章2</li>
+      </ul>
+      <figure>
+        <!-- 画像・GIFを置く場所 -->
+      </figure>
+    </section>
+
+
+    <!-- ===== セクション2：小セクションありの大セクションの例 ===== -->
+    <section id="section-2" class="content-section">
+      <h2>大見出し2（ダミー）</h2>
+      <p>ダミーの文章。</p>
+
+      <section id="section-2-1">
+        <h3>小見出し2-1（ダミー）</h3>
+        <p>ダミーの文章。</p>
+      </section>
+
+      <section id="section-2-2">
+        <h3>小見出し2-2（ダミー）</h3>
+        <p>ダミーの文章。</p>
+      </section>
+    </section>
+
+
+    <!-- ===== セクション3 ===== -->
+    <section id="section-3" class="content-section">
+      <h2>大見出し3（ダミー）</h2>
+      <p>ダミーの文章。</p>
+    </section>
+
 
 
   <!-- ===== 本文エリア（本文の担当だけが触る） ===== -->
