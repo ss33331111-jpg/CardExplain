@@ -110,7 +110,8 @@
 
 
     <!-- ===== 役一覧（#hands）（仮） =====
-         xlsxの「集計」「Sheet3」から作成。ランクの名前は、具材の種類数から推定した仮のもの。 -->
+         xlsxの最新版「集計」「Sheet3」から作成。Sheet2と、「集計」の2行目（名前が「単品」の行）は使わない。
+         ランクの名前は、必要なカードの数から推定した仮のもの。 -->
     <section id="hands" class="content-section">
       <h2>役一覧</h2>
       <p>おつまみ（役）は、必要な具材の種類の数で、ランクが決まります。</p>
@@ -119,74 +120,56 @@
       <section id="hands-1">
         <h3>単品（具材1種類）</h3>
         <ul class="content-yaku">
-          <li><span class="content-yaku-name">じゃがバター</span>根菜</li>
-          <li><span class="content-yaku-name">スモークベーコン</span>肉</li>
-          <li><span class="content-yaku-name">サラミ</span>肉</li>
-          <li><span class="content-yaku-name">ビーフジャーキー</span>肉</li>
-          <li><span class="content-yaku-name">ミートボール</span>肉</li>
-          <li><span class="content-yaku-name">ローストポーク</span>肉</li>
-          <li><span class="content-yaku-name">ラムチョップ</span>肉</li>
-          <li><span class="content-yaku-name">鶏の軟骨揚げ</span>肉</li>
-          <li><span class="content-yaku-name">もつ煮込み</span>肉</li>
-          <li><span class="content-yaku-name">燻製たまご</span>卵</li>
-          <li><span class="content-yaku-name">さつま揚げ</span>葉菜</li>
-          <li><span class="content-yaku-name">きんぴら</span>葉菜</li>
-          <!-- 要確認：名前が入っていません。
-          <li><span class="content-yaku-name">（名前未定）</span>ナッツ</li>
-          -->
+          <!-- カード1枚で、単品として扱う10種類（Excel「集計」の「単品」の行） -->
+          <li><span class="content-yaku-name">枝豆</span></li>
+          <li><span class="content-yaku-name">カルパス</span></li>
+          <li><span class="content-yaku-name">イカ</span></li>
+          <li><span class="content-yaku-name">ハム</span></li>
+          <li><span class="content-yaku-name">ナッツ</span></li>
+          <li><span class="content-yaku-name">韓国のり</span></li>
+          <li><span class="content-yaku-name">チーズ</span></li>
+          <li><span class="content-yaku-name">サラミ</span></li>
+          <li><span class="content-yaku-name">梅干し</span></li>
+          <li><span class="content-yaku-name">ダークチョコレート</span></li>
         </ul>
       </section>
 
       <section id="hands-2">
         <h3>ワンペア（具材2種類）</h3>
         <ul class="content-yaku">
-          <li><span class="content-yaku-name">しおまめ</span>枝豆＋塩</li>
-          <li><span class="content-yaku-name">焼き鳥</span>肉＋葉菜</li>
-          <li><span class="content-yaku-name">しおから</span>イカ＋塩</li>
-          <li><span class="content-yaku-name">ローストビーフ</span>肉＋調味料</li>
-          <li><span class="content-yaku-name">塩キャベツ</span>葉菜＋塩</li>
+          <li><span class="content-yaku-name">枝豆</span>枝豆＋調味料</li>
+          <li><span class="content-yaku-name">イカの塩辛</span>イカ＋調味料</li>
+          <li><span class="content-yaku-name">塩キャベツ</span>葉菜＋調味料</li>
+          <li><span class="content-yaku-name">じゃがバター</span>根菜＋調味料</li>
           <li><span class="content-yaku-name">海苔チーズ</span>韓国のり＋チーズ</li>
-          <li><span class="content-yaku-name">イカの唐揚げ</span>イカ＋油</li>
-          <!-- 要確認：名前が入っていません。
-          <li><span class="content-yaku-name">（名前未定）</span>イカ＋ハム</li>
-          -->
         </ul>
       </section>
 
       <section id="hands-3">
         <h3>スリーカード（具材3種類）</h3>
         <ul class="content-yaku">
-          <li><span class="content-yaku-name">フライドポテト</span>油＋塩＋根菜</li>
-          <li><span class="content-yaku-name">ザンギ</span>肉＋油＋粉</li>
-          <li><span class="content-yaku-name">カプレーゼ</span>葉菜＋油＋チーズ</li>
-          <li><span class="content-yaku-name">だし巻き</span>油＋調味料＋卵</li>
+          <li><span class="content-yaku-name">フライドポテト</span>オイル＋根菜＋調味料</li>
+          <li><span class="content-yaku-name">だし巻きたまご</span>オイル＋卵＋調味料</li>
+          <li><span class="content-yaku-name">イカの唐揚げ</span>イカ＋オイル＋調味料</li>
+          <li><span class="content-yaku-name">キノコのソテー</span>キノコ＋オイル＋調味料</li>
         </ul>
       </section>
 
       <section id="hands-4">
         <h3>フォーカード（具材4種類）</h3>
         <ul class="content-yaku">
-          <li><span class="content-yaku-name">餃子</span>肉＋葉菜＋調味料＋皮</li>
+          <li><span class="content-yaku-name">焼き鳥</span>肉＋葉菜＋オイル＋調味料</li>
+          <li><span class="content-yaku-name">ザンギ</span>肉＋オイル＋粉＋調味料</li>
         </ul>
       </section>
 
       <section id="hands-5">
         <h3>ファイブカード（具材5種類）</h3>
         <ul class="content-yaku">
-          <li><span class="content-yaku-name">ハムカツ</span>ハム＋油＋チーズ＋調味料＋卵</li>
-          <li><span class="content-yaku-name">たこ焼き</span>葉菜＋油＋粉＋調味料＋タコ</li>
-          <!-- 要確認：名前が入っていません。
-          <li><span class="content-yaku-name">（名前未定）</span>枝豆＋カルパス＋韓国のり＋チーズ＋梅干し</li>
-          -->
+          <li><span class="content-yaku-name">カプレーゼ</span>葉菜＋オイル＋チーズ＋果菜＋調味料</li>
+          <li><span class="content-yaku-name">たこ焼き</span>葉菜＋オイル＋粉＋タコ＋調味料</li>
         </ul>
       </section>
-
-      <!-- 要確認：次の役は、表に具材が入っていません。
-      <section id="hands-6">
-        <h3>具材が未設定の役</h3>
-        <p>ダークチョコレート、キノコのソテー、スモークサーモン、エビのガーリック炒め、白身魚のカルパッチョ、タコのマリネ、オリーブ、バーニャカウダ、しめ鯖、たこわさ、砂肝の塩焼き、冷奴、キムチ、梅水晶、きゅうりの浅漬け、いかの一夜干し、ドライフルーツ、オイルサーディン、レーズンバター、焼き明太子、刺身</p>
-      </section>
-      -->
     </section>
 
 
