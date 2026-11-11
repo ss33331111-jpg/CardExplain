@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <!-- ===== 共通部分(Web設定) ===== -->
 <head>
@@ -20,6 +20,47 @@
 
   <!-- ===== 目次エリア（目次の担当だけが触る） ===== -->
   <!-- ここに、左上のボタンと目次（nav）を書く。今は空 -->
+  <button
+    id="toc-button"
+    class="toc-button"
+    type="button"
+    aria-expanded="false"
+    aria-controls="toc"
+  >
+    目次を開く
+  </button>
+
+  <nav id="toc" class="toc-nav" aria-label="目次">
+    <ul>
+      <li><a href="#intro">おつまみポーカー</a></li>
+      <li><a href="#overview">ゲーム概要</a></li>
+      <li>
+        <a href="#setup">準備と点数</a>
+        <ul>
+          <li><a href="#setup-deal">カードの配り方</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#flow">ゲームの流れ</a>
+        <ul>
+          <li><a href="#flow-auction">競り</a></li>
+          <li><a href="#flow-result">勝敗</a></li>
+        </ul>
+      </li>
+      <li><a href="#betting">掛け金</a></li>
+      <li>
+        <a href="#hands">役一覧</a>
+        <ul>
+          <li><a href="#hands-1">単品</a></li>
+          <li><a href="#hands-2">ワンペア</a></li>
+          <li><a href="#hands-3">スリーカード</a></li>
+          <li><a href="#hands-4">フォーカード</a></li>
+          <li><a href="#hands-5">ファイブカード</a></li>
+        </ul>
+      </li>
+      <li><a href="#glossary">用語集</a></li>
+    </ul>
+  </nav>
 
 
   <!-- ===== 本文エリア（本文の担当だけが触る） ===== -->

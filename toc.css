@@ -1,2 +1,52 @@
 /* toc.css：目次とボタンの見た目（目次の担当だけが触る）
    クラス名は toc- で始める。開いている状態は is-open。 */
+
+   /* 目次ボタン */
+/* ハンバーガーメニューのボタン */
+.toc-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  color: #222;
+  cursor: pointer;
+}
+
+.toc-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.toc-button:hover {
+  background: #eee;
+}
+
+.toc-button:focus-visible {
+  outline: 3px solid #0066cc;
+  outline-offset: 3px;
+}
+
+/* 最初は目次を非表示にする */
+.toc-nav {
+  display: none;
+  margin-top: 12px;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f5f5f5;
+}
+
+/* is-open が付いたときだけ表示する */
+.toc-nav.is-open {
+  display: block;
+}
+
+.toc-nav a {
+  display: inline-block;
+  padding: 6px 0;
+}
