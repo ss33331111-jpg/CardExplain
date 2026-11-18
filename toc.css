@@ -46,7 +46,24 @@
   display: block;
 }
 
+/* 目次の項目 */
 .toc-nav a {
-  display: inline-block;
-  padding: 6px 0;
+  display: block;
+  padding: 10px 14px;
+  margin: 4px 0;
+  border-radius: 6px;
+  background: #eee;
+  color: #222;
+  text-decoration: none;
+}
+
+/* マウスを乗せたとき */
+.toc-nav a:hover {
+  background: #ddd;
+}
+
+/* キーボードで選択したとき */
+.toc-nav a:focus-visible {
+  outline: 2px solid #555;
+  outline-offset: 2px;
 }
